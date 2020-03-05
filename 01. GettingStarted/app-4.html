@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app-4">  
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.text }} <!-- mustache ... ? -->
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app4 = new Vue({
+            el: '#app-4', 
+            data: {
+                todos: [
+                    { text: 'VUE로 삼행시 해보겠습니다.'},
+                    { text: 'V : Very'},
+                    { text: 'U : Usefnl R'},
+                    { text: 'E : eact'},
+                    { text: 'ㅋㅋㅋ...'}    
+                ]
+            }
+        })
+
+    </script>
+
+</body>
+</html>
