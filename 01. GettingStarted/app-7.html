@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app-7">
+        <ol>
+          <sunyoung
+            v-for="item in myList"
+            v-bind:info="item" 
+          ></sunyoung> <!-- 컴포넌트에서 사용하는 변수 이름을 미리 정의해두는 것 같음 -->
+        </ol>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+    Vue.component('sunyoung', {
+        props: ['info'],
+        template: '<h2>{{ info.text }}</h2>'
+    })
+
+    var app7 = new Vue({
+    el: '#app-7',
+    data: {
+        myList: [
+            { id: 0, text: '영어를 해볼까요? Let\'s speak English~' },
+            { id: 1, text: '하얀 마스크는 인기가 많다.' },
+            { id: 2, text: 'white mask is very popular~' }
+        ]
+    }
+    })
+
+    </script>
+
+</body>
+</html>
