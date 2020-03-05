@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="app-2">  
+        <span v-bind:title="message"> 
+            여기에 마우스를 올려보시지
+        </span>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app2 = new Vue({
+            el: '#app-2', 
+            data: {
+                message: '이 페이지는 ' + new Date() + '에 로드 되었습니다!' // 콘솔에서 app2.message = "새로 입력할 메세지"을 실행하면 message가 바뀐다!
+            }
+        })
+
+    </script>
+
+</body>
+</html>
