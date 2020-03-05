@@ -1,1 +1,1 @@
-이번 주말에 하겠습니다 ... ^ㅇ^ !
+With ~ [Vue Guide](https://kr.vuejs.org/v2/guide/index.html) ~
