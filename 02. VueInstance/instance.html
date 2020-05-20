@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- develop -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> --> <!-- commercial -->
+
+    <script>
+
+        /*
+            각 Vue 인스턴스는 data 객체에 있는 모든 속성을 프록시 처리함
+        */
+
+        var data = { water : "물" }; // 데이터 객체
+
+        // Vue인스턴스에 데이터 객체를 추가
+        var vm = new Vue({
+            data: data
+        })
+
+        // 같은 객체를 참조
+        console.log(vm.water === data.water); // -> true
+
+        vm.$water = "수분"; // Vue 인스턴스 앞에는 $ 접두사를 붙일 수 있음
+        console.log(data.water); // -> 수분
+
+        // ... 당연하게도
+        data.water = "다시 물";
+        console.log(vm.water); // -> 다시 물
+        
+        /*
+            데이터가 변경되면 화면은 다시 렌더링됨
+            하지만 !!!!!!!
+            Vue 인스턴스에 데이터 객체를 추가할 때 있던 속성들만 적용! 따라서
+        */
+        vm.b = "hi~"; // 이렇게 해도 화면 갱신이 안됨! 
+        
+        /*
+            지금 당장은 필요하지 않지만 나중에 필요할 것 같으면
+            아래처럼 초기화를 미리 해주세용
+        */
+        var data2 = {
+            water : "물",
+            fire : "",
+            count : 0
+        };
+
+        // 이 메소드를 사용하면 기존 속성이 변경되는 것을 박아 반응성 시스템이 추적할 수 없게 됨
+        Object.freeze(data2); 
+
+    </script>
+
+</body>
+</html>
