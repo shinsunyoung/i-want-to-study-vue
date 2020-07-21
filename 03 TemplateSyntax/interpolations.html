@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 문자열 -->
+    <span> 메시지 : {{ msg }} </span> <!-- 기본적으로 Mustache 구문 사용.  msg가 업데이트 될 때마다 바뀜! -->
+    <span v-once> 다시는 변경하지 않습니다 : {{ msg }} </span> <!-- 데이터 변경 시에도 업데이트 X -->
+ 
+    
+    <!-- 원시 HTML -->
+    <p>Using mustaches : {{ rawHtml }}</p>
+    <p>Using v-html directive : <span v-html"rawHtml"></p> <!-- 이렇게 쓰면 XSS 취약점으로 이어질 수 있으니 신뢰할 수 있는 콘텐츠에만 사용하길 권고함 -->
+
+
+    <!-- 속성 -->
+    <div v-bind:id="dynamicId"></div>
+    <button v-bind:disabled="isButtonDisabled">Button</button> <!--isButtonDisabled이 true일 때만 disabled 가짐!-->
+
+    <!-- 자바스크립트 표현식 사용 -->
+    <!--
+        - {{ number + 1 }}
+        - {{ ok ? 'YES' : 'NO' }}
+        - {{ message.split('').reverse().join('') }}
+        이런거 다 쓸 수 있다 !!
+
+        근데 구문은 안됨!
+        - {{ var a = 1 }}
+        - {{ if (ok) { return message } }}
+    -->
+    <div v-bind:id="'list-' + id"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+
+    <script>
+
+    </script>
+
+</body>
+</html>
