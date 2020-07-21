@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-if="awesome">Vue is awesome!</h1> <!-- awesome이 true라면 이걸!-->
+
+      <h1 v-if="awesome2">Vue is awesome!</h1> <!-- awesome2이 true라면 이걸!-->
+      <h1 v-else>Oh no </h1> <!-- 아니라면 이걸!-->
+
+      <!-- 전달인자 -->
+      <a v-bind:href="url"> ... </a> <!-- href는 전달인자로, href 속성을  v-bind 디렉티브에게 알려줌;-->
+      <a v-on:click="doSomething"> ... </a> <!-- DOM 이벤트를 수신하는 디렉티브!-->
+
+      <!-- 동적 전달 인자 -->
+      <a v-bind:[attributeName]="url"> ... </a> <!-- 대괄호로 사용도 가능 -->
+      <a v-on:[eventName]="doSomething"> ... </a> <!-- eventName이 focusdlaus v-on:focus가 되는거에용!!!!! -->
+
+      <!-- 주의할점!
+        1. 동적 전달인자는 null || string! 다른건 ㄴㄴ 경고 뜸
+        2. ['foo' + bar] 같이 스페이스나 따옴표는 사용 XX
+        3. 속성명을 모두 소문자로 만들기 때문에 대문자 사용 XX
+      -->
+
+      <!-- 수식어 -->
+      <form v-on:submit.prevent="onSubmit"> ... </form> <!-- 특수 접미사임! .prevent = event.preventDefault()-->
+
+
+    </div>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          awesome: true,
+          awesome2: false,
+        }
+      })
+    </script>
+  </body>
+</html>
